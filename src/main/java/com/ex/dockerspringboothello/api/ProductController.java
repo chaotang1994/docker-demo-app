@@ -1,6 +1,7 @@
 package com.ex.dockerspringboothello.api;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.http.MediaType;
@@ -29,10 +30,14 @@ public class ProductController {
 
 	@GetMapping(value = "/{productId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Product getProductDetail(@PathVariable String productId) {
-		
+		System.out.println("productId : "+productId);
 		Product product = productMap.get(productId);
 		System.out.println("Product Detail : "+product);
 		return product;
 	}
 	
+	@GetMapping
+	public String get() {
+		return "hello";
+	}
 }
