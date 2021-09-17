@@ -1,5 +1,6 @@
 package com.ex.dockerspringboothello.model;
 
+
 public class Product {
 	private String id;
 	private String name;
