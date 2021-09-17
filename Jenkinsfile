@@ -25,7 +25,7 @@ pipeline {
         stage('Build Docker image'){
             steps {
               
-                sh 'docker build -t  chao4972/docker-demo-app:${BUILD_NUMBER} .'
+                sh 'docker build -t  chao4972/dockerdemo:${BUILD_NUMBER} .'
             }
         }
 
@@ -40,14 +40,14 @@ pipeline {
 
         stage('Docker Push'){
             steps {
-                sh 'docker push chao4972/demo-app:${BUILD_NUMBER}'
+                sh 'docker push chao4972/dockerdemo:${BUILD_NUMBER}'
             }
         }
         
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  8080:8080 chao4972/docker-demo-app:${BUILD_NUMBER}'
+                sh 'docker run -itd -p  8080:8080 chao4972/dockerdemo:${BUILD_NUMBER}'
             }
         }
 
